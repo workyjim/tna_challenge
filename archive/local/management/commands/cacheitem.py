@@ -20,6 +20,7 @@ class Command(BaseCommand):
 
         try:
             item = LocalItem.objects.get(pk=options['itemid'])
+            self.stdout.write("Item exists locally: using cached version")
         except LocalItem.DoesNotExist:
             response = requests.get(API_TEMPLATE.format(id=options['itemid']))
 

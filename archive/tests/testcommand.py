@@ -1,6 +1,7 @@
 from django.test import TestCase
 from io import StringIO
 from django.core.management import call_command
+
 KNOWN_IDS = [
     {
         "id": "N13759454",
@@ -24,4 +25,14 @@ class CommandTests(TestCase):
         out = StringIO()
         call_command("cacheitem", "definitely-invalid-item-id", stdout=out)
         self.assertEquals(out.getvalue().strip(), "no record found")
+
+    def test_ids_already_cached(self):
+        for item in KNOWN_IDS:
+            # cache the item once to ensure it's in the test db
+            call_command("cacheitem", item['id'])
+            
+            out = StringIO()
+            call_command("cacheitem", item['id'], stdout=out)
+            self.assertEquals(out.getvalue().strip(), "Item exists locally: using cached version\n{detail}".format(detail=item['output'].strip()))
+
 
