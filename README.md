@@ -22,7 +22,7 @@ You can use the app from the terminal, ensuring that your working directory is t
 
 #### Known IDs
 
-if you would like to try the app with the known IDs used for testing, you can run the following commands:
+If you would like to try the app with the known IDs used for testing, you can run the following commands:
 
 ```
 > ./manage.py cacheitem "N13759454"
