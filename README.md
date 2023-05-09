@@ -20,6 +20,16 @@ You can use the app from the terminal, ensuring that your working directory is t
 > ./manage.py cacheitem "<item-id-here>"
 ```
 
+#### Known IDs
+
+if you would like to try the app with the known IDs used for testing, you can run the following commands:
+
+```
+> ./manage.py cacheitem "N13759454"
+> ./manage.py cacheitem "a147aa58-38c5-45fb-a340-4a348efa01e6"
+```
+
+
 ## Running the tests
 
 The app was built with a set of unit and integration tests to confirm that the expected results were emitted from the code. The tests are built on django's default testing framework, and as such they can be run as a suite using the built in `test` management command:
